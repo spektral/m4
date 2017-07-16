@@ -9,6 +9,7 @@
     <audio id="keypressaudio" src="KeyPress.mp3"></audio>
     <audio id="keyreleaseaudio" src="KeyRelease.mp3"></audio>
 
+    <!--
     <div class="controls">
         <div>
             <label>Reflector:</label>
@@ -64,8 +65,116 @@
             <button onclick="configure()">Set</button>
         </div>
     </div>
+    -->
 
     <div class="base">
+        <div class="rotorboard">
+            <table class="rotor_settings">
+                <tr>
+                    <th>Reflector</th>
+                    <th>Rotor 1</th>
+                    <th>Rotor 2</th>
+                    <th>Rotor 3</th>
+                    <th>Rotor 4</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="reflector" onchange="configure()">
+                            <option value="b">B (thin)</option>
+                            <option value="c">C (thin)</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="rotor1" onchange="configure()">
+                        <option value="Beta" selected="selected">&beta;</option>
+                        <option value="Gamma">&gamma;</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="rotor2" onchange="configure()">
+                        <option value="I" selected="selected">I</option>
+                        <option value="II">II</option>
+                        <option value="III">III</option>
+                        <option value="IV">IV</option>
+                        <option value="V">V</option>
+                        <option value="VI">VI</option>
+                        <option value="VII">VII</option>
+                        <option value="VIII">VIII</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="rotor3" onchange="configure()">
+                        <option value="I">I</option>
+                        <option value="II" selected="selected">II</option>
+                        <option value="III">III</option>
+                        <option value="IV">IV</option>
+                        <option value="V">V</option>
+                        <option value="VI">VI</option>
+                        <option value="VII">VII</option>
+                        <option value="VIII">VIII</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="rotor4" onchange="configure()">
+                        <option value="I">I</option>
+                        <option value="II">II</option>
+                        <option value="III" selected="selected">III</option>
+                        <option value="IV">IV</option>
+                        <option value="V">V</option>
+                        <option value="VI">VI</option>
+                        <option value="VII">VII</option>
+                        <option value="VIII">VIII</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <span class="rotorwindow" id="win0"></span>
+                        <div class="rotorslot">
+                            <div class="rotorup" id="cyl0" onmousedown="on_rotorup(0)"></div>
+                            <div class="rotordown" id="cyl0" onmousedown="on_rotordown(0)"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="rotorwindow" id="win1"></span>
+                        <div class="rotorslot">
+                            <div class="rotorup" id="cyl1" onmousedown="on_rotorup(1)"></div>
+                            <div class="rotordown" id="cyl1" onmousedown="on_rotordown(1)"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="rotorwindow" id="win2"></span>
+                        <div class="rotorslot">
+                            <div class="rotorup" id="cyl2" onmousedown="on_rotorup(2)"></div>
+                            <div class="rotordown" id="cyl2" onmousedown="on_rotordown(2)"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="rotorwindow" id="win3"></span>
+                        <div class="rotorslot">
+                            <div class="rotorup" id="cyl3" onmousedown="on_rotorup(3)"></div>
+                            <div class="rotordown" id="cyl3" onmousedown="on_rotordown(3)"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Ring setting:</th>
+                    <td><select id="ringset1" onchange="configure()"></select></td>
+                    <td><select id="ringset2" onchange="configure()"></select></td>
+                    <td><select id="ringset3" onchange="configure()"></select></td>
+                    <td><select id="ringset4" onchange="configure()"></select></td>
+                    <!--<td><button onclick="configure()">Set</button>-->
+                </tr>
+                <tr align="right">
+                    <th colspan="5">
+                        <input type="checkbox" id="keeplamp"  onchange="configure()">Keep light on</input>
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+        <!--
         <div class="rotorboard">
             <span style="width: 116px"></span>
             <span class="rotorwindow" id="win0"></span>
@@ -89,6 +198,7 @@
                 <div class="rotordown" id="cyl3" onmousedown="on_rotordown(3)"></div>
             </div>
         </div>
+        -->
 
         <div style="height: 30px; width: 792px; background: #555"></div>
 
