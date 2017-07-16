@@ -232,6 +232,16 @@ function update_plugboard()
     }
 }
 
+function on_rotorup(index) {
+    rotors[index].increment_setting();
+    update_rotor_windows();
+}
+
+function on_rotordown(index) {
+    rotors[index].decrement_setting();
+    update_rotor_windows();
+}
+
 function on_keyrelease() {
     if (keep_lamp_on == false) {
         console.info("Resetting lamps.");
