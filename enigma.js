@@ -69,9 +69,14 @@ class Plugboard
 class Rotor
 {
     constructor(type) {
-        this.type = type;
+        this.set_type(type);
         this.setting = 0;
         this.ring_setting = 0;
+    }
+
+    set_type(type)
+    {
+        this.type = type;
         this.connections_rh = new Array(ALPHABET.length);
         this.connections_lh = new Array(ALPHABET.length);
         for (var i = 0; i < ALPHABET.length; i++) {
@@ -187,12 +192,12 @@ function char_to_index(char)
 }
 
 function configure() {
-    reflector.type = document.getElementById("reflector").value;
+    reflector.set_type(document.getElementById("reflector").value);
 
-    rotors[0].type = document.getElementById("rotor1").value;
-    rotors[1].type = document.getElementById("rotor2").value;
-    rotors[2].type = document.getElementById("rotor3").value;
-    rotors[3].type = document.getElementById("rotor4").value;
+    rotors[0].set_type(document.getElementById("rotor1").value);
+    rotors[1].set_type(document.getElementById("rotor2").value);
+    rotors[2].set_type(document.getElementById("rotor3").value);
+    rotors[3].set_type(document.getElementById("rotor4").value);
 
     rotors[0].ring_setting = char_to_index(document.getElementById("ringset1").value);
     rotors[1].ring_setting = char_to_index(document.getElementById("ringset2").value);
