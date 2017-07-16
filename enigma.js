@@ -168,6 +168,24 @@ class Rotor
     }
 }
 
+function index_to_char(index)
+{
+    if (typeof index == "string") {
+        return index;
+    }
+
+    return String.fromCharCode(index + 65);
+}
+
+function char_to_index(char)
+{
+    if (typeof char == "number") {
+        return char;
+    }
+
+    return char.charCodeAt(0) - 65;
+}
+
 function configure() {
     reflector.type = document.getElementById("reflector").value;
 
@@ -186,24 +204,8 @@ function configure() {
     console.info(rotors[1]);
     console.info(rotors[2]);
     console.info(rotors[3]);
-}
 
-function index_to_char(index)
-{
-    if (typeof index == "string") {
-        return index;
-    }
-
-    return String.fromCharCode(index + 65);
-}
-
-function char_to_index(char)
-{
-    if (typeof char == "number") {
-        return char;
-    }
-
-    return char.charCodeAt(0) - 65;
+    keep_lamp_on = document.getElementById("keeplamp").checked;
 }
 
 function update_rotor_windows()
@@ -226,28 +228,20 @@ function update_plugboard()
         else {
             item.className = "plug";
             item.innerHTML = index_to_char(i);
-            //item.innerHTML = "<div class='plughole'></div><div class='plughole'></div>";
         }
     }
 }
 
-function on_rotorup(index)
-{
-    rotors[index].increment_setting();
-    update_rotor_windows();
-}
-
-function on_rotordown(index)
-{
-    rotors[index].decrement_setting();
-    update_rotor_windows();
-}
-
 function on_keyrelease() {
-    var litlamps = document.getElementsByClassName('lampboardlamplit');
-    for (var i = 0; i < litlamps.length; i++) {
-        var item = litlamps[i];
-        item.className = 'lampboardlamp';
+    if (keep_lamp_on == false) {
+        console.info("Resetting lamps.");
+        var litlamps = document.getElementsByClassName('lampboardlamplit');
+        for (var i = 0; i < litlamps.length; i++) {
+            var item = litlamps[i];
+            item.className = 'lampboardlamp';
+        }
+    } else {
+        console.info("Keeping lamps on.");
     }
 }
 
@@ -287,7 +281,12 @@ function on_kb_mousedown(id) {
     index = rotors[3].substitute_lh(index);
     index = plugboard.substitute(index);
 
-    // Animate key
+    // Update lamps
+    var litlamps = document.getElementsByClassName('lampboardlamplit');
+    for (var i = 0; i < litlamps.length; i++) {
+        var item = litlamps[i];
+        item.className = 'lampboardlamp';
+    }
     var lampid = 'lamp' + index_to_char(index);
     var lamp = document.getElementById(lampid);
     lamp.className = 'lampboardlamplit';
@@ -341,6 +340,7 @@ function on_load()
     rotors.push(new Rotor("II"));
     rotors.push(new Rotor("III"));
     plugboard = new Plugboard();
+    keep_lamp_on = false;
 
     selected_plug = null;
 
@@ -384,6 +384,7 @@ function on_load()
 
     plugboard.print_configuration();
 
+    configure();
     update_rotor_windows();
     update_plugboard();
 }
