@@ -359,10 +359,10 @@ function on_load()
     for (var i = 0; i < ALPHABET.length; i++)
     {
         var char = index_to_char(i);
-        document.getElementById("ringset1").innerHTML += `<option value=${char}>${char}</option>`;
-        document.getElementById("ringset2").innerHTML += `<option value=${char}>${char}</option>`;
-        document.getElementById("ringset3").innerHTML += `<option value=${char}>${char}</option>`;
-        document.getElementById("ringset4").innerHTML += `<option value=${char}>${char}</option>`;
+        document.getElementById("ringset1").innerHTML += `<option value=${char}>${char} (${i})</option>`;
+        document.getElementById("ringset2").innerHTML += `<option value=${char}>${char} (${i})</option>`;
+        document.getElementById("ringset3").innerHTML += `<option value=${char}>${char} (${i})</option>`;
+        document.getElementById("ringset4").innerHTML += `<option value=${char}>${char} (${i})</option>`;
     }
 
     items = document.getElementsByClassName("lampboardlamp");
