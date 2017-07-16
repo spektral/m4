@@ -7,65 +7,6 @@
 
 <body onload="on_load()" onmouseup="on_keyrelease()">
     <audio id="keypressaudio" src="KeyPress.mp3"></audio>
-    <audio id="keyreleaseaudio" src="KeyRelease.mp3"></audio>
-
-    <!--
-    <div class="controls">
-        <div>
-            <label>Reflector:</label>
-            <select id="reflector">
-                <option value="b">B (thin)</option>
-                <option value="c">C (thin)</option>
-            </select>
-            <input type="checkbox" id="keeplamp">Keep lamp on</input>
-        </div>
-        <div>
-            <label>Rotors:</label>
-            <select id="rotor1">
-                <option value="Beta" selected="selected">&beta;</option>
-                <option value="Gamma">&gamma;</option>
-            </select>
-            <select id="rotor2">
-                <option value="I" selected="selected">I</option>
-                <option value="II">II</option>
-                <option value="III">III</option>
-                <option value="IV">IV</option>
-                <option value="V">V</option>
-                <option value="VI">VI</option>
-                <option value="VII">VII</option>
-                <option value="VIII">VIII</option>
-            </select>
-            <select id="rotor3">
-                <option value="I">I</option>
-                <option value="II" selected="selected">II</option>
-                <option value="III">III</option>
-                <option value="IV">IV</option>
-                <option value="V">V</option>
-                <option value="VI">VI</option>
-                <option value="VII">VII</option>
-                <option value="VIII">VIII</option>
-            </select>
-            <select id="rotor4">
-                <option value="I">I</option>
-                <option value="II">II</option>
-                <option value="III" selected="selected">III</option>
-                <option value="IV">IV</option>
-                <option value="V">V</option>
-                <option value="VI">VI</option>
-                <option value="VII">VII</option>
-                <option value="VIII">VIII</option>
-            </select>
-        </div>
-        <div>
-            <label>Ring setting:</label>
-            <select id="ringset1"></select>
-            <select id="ringset2"></select>
-            <select id="ringset3"></select>
-            <select id="ringset4"></select>
-            <button onclick="configure()">Set</button>
-        </div>
-    </div>
-    -->
 
     <div class="base">
         <div class="rotorboard">
@@ -164,7 +105,6 @@
                     <td><select id="ringset2" onchange="configure()"></select></td>
                     <td><select id="ringset3" onchange="configure()"></select></td>
                     <td><select id="ringset4" onchange="configure()"></select></td>
-                    <!--<td><button onclick="configure()">Set</button>-->
                 </tr>
                 <tr align="right">
                     <th colspan="5">
@@ -173,32 +113,6 @@
                 </tr>
             </table>
         </div>
-
-        <!--
-        <div class="rotorboard">
-            <span style="width: 116px"></span>
-            <span class="rotorwindow" id="win0"></span>
-            <div class="rotorslot">
-                <div class="rotorup" id="cyl0" onmousedown="on_rotorup(0)"></div>
-                <div class="rotordown" id="cyl0" onmousedown="on_rotordown(0)"></div>
-            </div>
-            <span class="rotorwindow" id="win1"></span>
-            <div class="rotorslot">
-                <div class="rotorup" id="cyl1" onmousedown="on_rotorup(1)"></div>
-                <div class="rotordown" id="cyl1" onmousedown="on_rotordown(1)"></div>
-            </div>
-            <span class="rotorwindow" id="win2"></span>
-            <div class="rotorslot">
-                <div class="rotorup" id="cyl2" onmousedown="on_rotorup(2)"></div>
-                <div class="rotordown" id="cyl2" onmousedown="on_rotordown(2)"></div>
-            </div>
-            <span class="rotorwindow" id="win3"></span>
-            <div class="rotorslot">
-                <div class="rotorup" id="cyl3" onmousedown="on_rotorup(3)"></div>
-                <div class="rotordown" id="cyl3" onmousedown="on_rotordown(3)"></div>
-            </div>
-        </div>
-        -->
 
         <div style="height: 30px; width: 792px; background: #555"></div>
 
