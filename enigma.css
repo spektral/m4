@@ -1,0 +1,234 @@
+.base {
+    padding: 4px;
+    width: 792px;
+    background: #222;
+    border-radius: 4px;
+}
+
+.rotorboard {
+    width: 792px;
+    height: 360px;
+    display: flex;
+    background: #444;
+}
+
+.rotorwindow {
+    display: inline-flex;
+    border-radius: 2px;
+    border: 4px solid #333;
+
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 50px 20px;
+    margin-top: 248px;
+
+    width: 21px;
+    height: 30px;
+
+    background: cornsilk;
+}
+
+.rotorslot {
+    width: 10px;
+    height: 204px;
+    margin-top: 130px;
+    background: #111;
+    padding: 0px 4px;
+}
+
+.rotorup {
+    width: 10px;
+    height: 100px;
+    background: lightgray;
+    padding: 0px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.rotordown {
+    width: 10px;
+    height: 100px;
+    background: darkgray;
+    padding: 0px;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.lampboard {
+    width: 792px;
+    padding-top: 14px;
+    padding-bottom: 0px;
+    background: #444;
+}
+
+.lampboardrow {
+    display: flex;
+    padding-left: 40px;
+}
+
+.lampboardlamp, .lampboardlamplit {
+    display: inline-flex;
+
+    border-radius: 50%;
+
+    border: 2px solid #111;
+    font-family: Tahoma;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+
+    /* Dimensions: */
+    box-shadow: 0px 0px 6px #111;
+    margin: 11px 17px;
+    width: 33px;
+    height: 33px;
+    font-size: 24px;
+
+    color: darkgray;
+    background: #333;
+}
+
+.lampboardlamplit
+{
+    color: #ffffbb;
+    text-shadow: 0 0 20px #ffff00;
+}
+
+.keyboard {
+    width: 792px;
+    padding-top: 2px;
+    padding-bottom: 34px;
+    background: #333;
+}
+
+.keyboardrow {
+    display: flex;
+    padding-left: 40px;
+}
+
+.keyboardkey {
+    display: inline-flex;
+    /* Use flexbox: */
+    /* Button/key display configuration: */
+    /* Make element round: */
+    border-radius: 50%;
+    border: 2px solid lightgray;
+    cursor: pointer;
+
+    /*outline: none;*/
+    /* Make beveled: */
+    font-family: 'Franklin Gothic', Arial, sans-serif;
+    text-decoration: none;
+    justify-content: space-around;
+
+    /* Dimensions: */
+    box-shadow: 10px 10px 5px #111;
+    margin: 11px 17px;
+    width: 33px;
+    height: 33px;
+    font-size: 24px;
+
+    align-items: center;
+
+    color: white;
+    background: #222;
+}
+
+.keyboardkey:active {
+    box-shadow: 5px 5px 5px #111;
+    width: 29px;
+    height: 29px;
+    font-size: 20px;
+    margin: 13px 19px;
+}
+
+.steckerbrett {
+    width: 760px;
+    height: 194px;
+    background: #222;
+    border-radius: 4px;
+    margin-top: 4px;
+    padding: 40px 20px;
+}
+
+.plugrow {
+    display: flex;
+}
+
+.plug, .plugplugged {
+    display: flex;
+    flex-flow: column;
+    width: 34px;
+    height: 58px;
+    border-radius: 34px;
+    background: #111;
+    border: 2px solid #333;
+    margin: 0px 23px;
+    padding-top: 2px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana;
+    font-size: 16px;
+    color: white;
+}
+
+.plugplugged {
+    background: black;
+    border: 4px solid #999;
+    width: 30px;
+    height: 54px;
+}
+
+.plughole {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: black;
+    border: 4px solid #888;
+    margin: 3px 6px;
+}
+
+.debugwindow {
+    margin: 16px;
+}
+
+.notepad {
+    display: flex;
+    margin-top: 16px;
+    font-family: Courier New, Courier, monospace;
+    width: 800px;
+}
+
+.notepadpart {
+    background: lightyellow;
+    flex-flow: row;
+    box-shadow: 1px 1px 2px #111;
+    width: 50%;
+    padding: 16px;
+}
+
+.controls {
+    display: flex;
+    flex-flow: column;
+    width: 800px;
+    margin: 4px;
+}
+
+select {
+    font-family: "Courier New", Courier, monospace;
+    margin: 0px 2px;
+}
+
+label {
+    margin: 0px 8px;
+}
+
+button {
+    margin: 0px 8px;
+}

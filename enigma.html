@@ -1,0 +1,293 @@
+<html>
+<script src="enigma.js"></script>
+
+<head>
+    <link rel="stylesheet" href="enigma.css">
+</head>
+
+<body onload="on_load()" onmouseup="on_keyrelease()">
+    <audio id="keypressaudio" src="KeyPress.mp3"></audio>
+    <audio id="keyreleaseaudio" src="KeyRelease.mp3"></audio>
+
+    <div class="controls">
+        <div>
+            <label>Reflector:</label>
+            <select id="reflector">
+                <option value="b">B (thin)</option>
+                <option value="c">C (thin)</option>
+            </select>
+        </div>
+        <div>
+            <label>Rotors:</label>
+            <select id="rotor1">
+                <option value="Beta">&beta;</option>
+                <option value="Gamma">&gamma;</option>
+            </select>
+            <select id="rotor2">
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
+                <option value="V">V</option>
+                <option value="VI">VI</option>
+                <option value="VII">VII</option>
+                <option value="VIII">VIII</option>
+            </select>
+            <select id="rotor3">
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
+                <option value="V">V</option>
+                <option value="VI">VI</option>
+                <option value="VII">VII</option>
+                <option value="VIII">VIII</option>
+            </select>
+            <select id="rotor4">
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
+                <option value="V">V</option>
+                <option value="VI">VI</option>
+                <option value="VII">VII</option>
+                <option value="VIII">VIII</option>
+            </select>
+        </div>
+        <div>
+            <label>Ring setting:</label>
+            <select id="ringset1"></select>
+            <select id="ringset2"></select>
+            <select id="ringset3"></select>
+            <select id="ringset4"></select>
+            <button onclick="configure()">Set</button>
+        </div>
+    </div>
+
+    <div class="base">
+        <div class="rotorboard">
+            <span style="width: 116px"></span>
+            <span class="rotorwindow" id="win0"></span>
+            <div class="rotorslot">
+                <div class="rotorup" id="cyl0" onmousedown="on_rotorup(0)"></div>
+                <div class="rotordown" id="cyl0" onmousedown="on_rotordown(0)"></div>
+            </div>
+            <span class="rotorwindow" id="win1"></span>
+            <div class="rotorslot">
+                <div class="rotorup" id="cyl1" onmousedown="on_rotorup(1)"></div>
+                <div class="rotordown" id="cyl1" onmousedown="on_rotordown(1)"></div>
+            </div>
+            <span class="rotorwindow" id="win2"></span>
+            <div class="rotorslot">
+                <div class="rotorup" id="cyl2" onmousedown="on_rotorup(2)"></div>
+                <div class="rotordown" id="cyl2" onmousedown="on_rotordown(2)"></div>
+            </div>
+            <span class="rotorwindow" id="win3"></span>
+            <div class="rotorslot">
+                <div class="rotorup" id="cyl3" onmousedown="on_rotorup(3)"></div>
+                <div class="rotordown" id="cyl3" onmousedown="on_rotordown(3)"></div>
+            </div>
+        </div>
+
+        <div style="height: 30px; width: 792px; background: #555"></div>
+
+        <div class="lampboard">
+            <div class="lampboardrow">
+                <span style="width: 21px"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+            </div>
+            <div class="lampboardrow">
+                <span style="width: 47px"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+            </div>
+            <div class="lampboardrow">
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+                <span class="lampboardlamp"></span>
+            </div>
+        </div>
+
+        <div style="height: 29px; width: 792px; background: #222"></div>
+
+        <div class="keyboard">
+            <div class="keyboardrow">
+                <span style="width: 21px"></span>
+                <a class="keyboardkey" onmousedown="on_keypress('Q')" onmouseup="on_keyrelease()">Q</a>
+                <a class="keyboardkey" onmousedown="on_keypress('W')" onmouseup="on_keyrelease()">W</a>
+                <a class="keyboardkey" onmousedown="on_keypress('E')" onmouseup="on_keyrelease()">E</a>
+                <a class="keyboardkey" onmousedown="on_keypress('R')" onmouseup="on_keyrelease()">R</a>
+                <a class="keyboardkey" onmousedown="on_keypress('T')" onmouseup="on_keyrelease()">T</a>
+                <a class="keyboardkey" onmousedown="on_keypress('Z')" onmouseup="on_keyrelease()">Z</a>
+                <a class="keyboardkey" onmousedown="on_keypress('U')" onmouseup="on_keyrelease()">U</a>
+                <a class="keyboardkey" onmousedown="on_keypress('I')" onmouseup="on_keyrelease()">I</a>
+                <a class="keyboardkey" onmousedown="on_keypress('O')" onmouseup="on_keyrelease()">O</a>
+            </div>
+            <div class="keyboardrow">
+                <span style="width: 47px"></span>
+                <a class="keyboardkey" onmousedown="on_keypress('A')" onmouseup="on_keyrelease()">A</a>
+                <a class="keyboardkey" onmousedown="on_keypress('S')" onmouseup="on_keyrelease()">S</a>
+                <a class="keyboardkey" onmousedown="on_keypress('D')" onmouseup="on_keyrelease()">D</a>
+                <a class="keyboardkey" onmousedown="on_keypress('F')" onmouseup="on_keyrelease()">F</a>
+                <a class="keyboardkey" onmousedown="on_keypress('G')" onmouseup="on_keyrelease()">G</a>
+                <a class="keyboardkey" onmousedown="on_keypress('H')" onmouseup="on_keyrelease()">H</a>
+                <a class="keyboardkey" onmousedown="on_keypress('J')" onmouseup="on_keyrelease()">J</a>
+                <a class="keyboardkey" onmousedown="on_keypress('K')" onmouseup="on_keyrelease()">K</a>
+            </div>
+            <div class="keyboardrow">
+                <a class="keyboardkey" onmousedown="on_keypress('P')" onmouseup="on_keyrelease()">P</a>
+                <a class="keyboardkey" onmousedown="on_keypress('Y')" onmouseup="on_keyrelease()">Y</a>
+                <a class="keyboardkey" onmousedown="on_keypress('X')" onmouseup="on_keyrelease()">X</a>
+                <a class="keyboardkey" onmousedown="on_keypress('C')" onmouseup="on_keyrelease()">C</a>
+                <a class="keyboardkey" onmousedown="on_keypress('V')" onmouseup="on_keyrelease()">V</a>
+                <a class="keyboardkey" onmousedown="on_keypress('B')" onmouseup="on_keyrelease()">B</a>
+                <a class="keyboardkey" onmousedown="on_keypress('N')" onmouseup="on_keyrelease()">N</a>
+                <a class="keyboardkey" onmousedown="on_keypress('M')" onmouseup="on_keyrelease()">M</a>
+                <a class="keyboardkey" onmousedown="on_keypress('L')" onmouseup="on_keyrelease()">L</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="steckerbrett">
+        <div class="plugrow">
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+        </div>
+        <div class="plugrow">
+            <span style="width: 43px"></span>
+
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+        </div>
+        <div class="plugrow">
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+            <div class="plug">
+                <div class="plughole"></div>
+                <div class="plughole"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notepad">
+        <div class="notepadpart" id="notepadin">
+        </div>
+        <div class="notepadpart" id="notepadout">
+        </div>
+    </div>
+</body>
+</html>
