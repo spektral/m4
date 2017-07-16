@@ -213,6 +213,11 @@ function configure() {
     keep_lamp_on = document.getElementById("keeplamp").checked;
 }
 
+function clear_notepad() {
+    document.getElementById("notepadin").innerHTML = '';
+    document.getElementById("notepadout").innerHTML = '';
+}
+
 function update_rotor_windows()
 {
     var rotor_windows = document.getElementsByClassName("rotorwindow");
