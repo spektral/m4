@@ -8,6 +8,11 @@
 <body onload="on_load()" onmouseup="on_keyrelease()">
     <audio id="keypressaudio" src="KeyPress.mp3"></audio>
 
+    <ul class="menu">
+        <li class="menu"><a class="active" href="index.html">Enigma</a></li>
+        <li class="menu"><a href="information.html">Information</a></li>
+    </ul>
+
     <div class="base">
         <div class="rotorboard">
             <table class="rotor_settings">
@@ -313,8 +318,7 @@
         </div>
         <div class="notepadpart" id="notepadout">
         </div>
+        <button onclick="clear_notepad()">Clear notepad</button>
     </div>
-
-    <button onclick="clear_notepad()">Clear notepad</button>
 </body>
 </html>

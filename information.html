@@ -1,0 +1,188 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="enigma.css">
+</head>
+
+<body>
+    <ul class="menu">
+        <li class="menu"><a href="index.html">Enigma</a></li>
+        <li class="menu"><a class="active" href="information.html">Information</a></li>
+    </ul>
+
+    <h1>Quickstart example of basic procedure</h1>
+    <p>If anything feels confusing, it may clear up from the practical example below. It may also help to look at some pictures
+        of Enigma machines to maybe get an understanding of what I'm trying to show:</p>
+    <div>
+        <a href="image1.jpg"><img class="row" src="image1.jpg"></img></a>
+        <a href="image2.jpg"><img class="row" src="image2.jpg"></img></a>
+        <a href="image3.jpg"><img class="row" src="image3.jpg"></img></a>
+        <a href="image4.jpg"><img class="row" src="image4.jpg"></img></a>
+    </div>
+    <p>The emulator consists of four parts, from top to bottom:</p>
+    <ol>
+        <li>Controls for internal settings, and rotor setting displays</li>
+        <li>Lampboard which lights up each processed letter</li>
+        <li>Keyboard which is used to input letters</li>
+        <li>Plugboard</li>
+        <li>Notepad, which updates automatically when letters are processed</li>
+    </ol>
+    <p>The four gray bars beside the yellow letter windows are the rotors. They can be shifted up or down by clicking the upper
+        or lower part.</p>
+    <p>The option "Keep light on" can be used to keep the lampboard shining when a key is released. This makes it a bit easier
+        to use, and is necessary for use with touch screens.</p>
+
+    <h2>Basic usage</h2>
+    <p>For two operators to communicate, they both need to have the same settings configured. These settings include:</p>
+    <ul>
+        <li><em>Reflector</em> selection (Umkehrwalze)</li>
+        <li><em>Rotor</em> types and order (Walzenlage)</li>
+        <li><em>Ring setting</em> (Ringstellung)</li>
+        <li><em>Plugboard</em> connections (Steckerverbindungen)</li>
+    </ul>
+    <p>To configure reflector, rotors, and ring settings, use the controls on the upper part. To connect plugs on the plugboard,
+        click two letters on the board in succession. To reset a plugboard connection, simply click one of its plugs.</p>
+
+    <h2>Practical example</h2>
+    <p>This is a simplified example. The correct procedure is covered below.</p>
+    <p>Say you want to encrypt the sentence "Cryptography is fun". First you choose a setting, for example:</p>
+    <ul>
+        <li>Reflector: <tt>C</tt></li>
+        Choose <tt>B</tt> or <tt>C</tt>. The M4 Enigma uses a thin rotor here.
+        <li>Rotors: <tt>&beta; IV VII III</tt></li>
+        The first rotor is special for the M4, choose from &beta; and &gamma;. Then choose three rotors between <tt>I</tt>
+        and <tt>VIII</tt>. An actual Enigma machine only comes with one rotor of each.
+        <li>Ring setting: <tt>01 01 01 16</tt></li>
+        This represents an internal rotation for each rotor, choose between <tt>01</tt> and <tt>26</tt>.
+        <li>Plugboard connections: <tt>DO BX QM EZ AP FL IR UH</tt></li>
+        These are letter pairs connected with wires between each corresponding plug. A letter cannot be connected to itself, and
+        a pair can only be connected to each other.
+        <li>Key: <tt>MCQD</tt></li>
+        Choose four random letters, this is the encryption key. Rotate the rotors so that these letters are shown in the four windows.
+    </ul>
+    <p>Then you prepare the plaintext by removing the spaces, and group the letters in fours for clarity:</p>
+    <p><tt>CRYP TOGR APHY ISFU N</tt></p>
+    <p>Then you type each letter on the Enigma keyboard, holding down the key and noting which lamp lights up. In the emulator,
+        notes are taken automatically on the notepad. You should get the result:</p>
+    <p><tt>MECL CAQG KVVH DAPL T</tt></p>
+    <p>You're done! The message can now be sent to another operator, provided they know the settings and the key. How they would
+        know this is covered below, along with the actual encryption procedure which is more complex.</p>
+    <p>To decrypt it, set the machine to the same settings as when you encrypted the message, and simply type the ciphertext on
+        the Enigma keyboard. You should get the plaintext as result.</p>
+
+    <h2>Real life ciphertext example</h2>
+    <p>This message was sent from a U-boat on 25th November 1942:</p>
+    <p><tt>NCZW VUSX PNYM INHZ XMQX SFWX WLKJ AHSH NMCO CCAK UQPM KCSM HKSE INJU
+        SBLK IOSX CKUB HMLL XCSJ USRR DVKO HULX WCCB GVLI YXEO AHXR HKKF VDRE
+        WEZL XOBA FGYU JQUK GRTV UKAM EURB VEKS UHHV OYHA BCJW MAKL FKLM YFVN
+        RIZR VVRT KOFD ANJM OLBG FFLE OPRG TFLV RHOW OPBE KVWM UQFM PWPA RMFH AGKX IIBG</tt></p>
+    <p>The machine settings for this message was:</p>
+    <ul>
+        <li>Reflector: <tt>B</tt></li>
+        <li>Rotors: <tt>&beta; II IV I</tt></li>
+        <li>Ring setting: <tt>01 01 01 22</tt></li>
+        <li>Plugboard connections: <tt>AT BL DF GJ HM NW OP QY RZ VX</tt></li>
+        <li>Key: <tt>VJNA</tt></li>
+    </ul>
+    <p>The decrypted plaintext reads as follows:</p>
+    <p><tt>VONV ONJL OOKS JHFF TTTE INSE INSD REIZ WOYY QNNS NEUN INHA LTXX BEIA 
+        NGRI FFUN TERW ASSE RGED RUEC KTYW ABOS XLET ZTER GEGN ERST ANDN ULAC
+        HTDR EINU LUHR MARQ UANT ONJO TANE UNAC HTSE YHSD REIY ZWOZ WONU LGRA
+        DYAC HTSM YSTO SSEN ACHX EKNS VIER MBFA ELLT YNNN NNNO OOVI ERYS ICHT
+        EINS NULL</tt></p>
+    <p>Cleaned up, suspected operator typos marked bold:</p>
+    <p><tt>VONVON J LOOKS J <em>H</em>FF TTT EINS EINS DREI ZWO YY <em>QN</em>NS NEUN INHALT XX
+        BEI ANGRIFF UNTERWASSERGEDRUECKT Y WABOS X LETZER GEGNERSTAND NUL ACHT
+        DREI NUL UHR MARQU ANTON JOTA NEUN ACHT SE<em>Y</em>HS DREI Y ZWO ZWO NUL GRAD
+        Y ACHT SM Y STOSSE NACH X E<em>K</em>NS VIER MB FAELLT Y NNN NNN OOO VIER Y SICHT
+        EINS NULL</tt></p>
+    <p>And the actual meaning:</p>
+    <p>Von "Looks" FT1132/19, inhalt: Bei angriff unterwassergedr&uuml;ckt,
+        Wasserbomben. Letzer Gegnerstandort 08:30 Uhr Marinequadrat AJ9863,
+        220 Grad, 8 kn, sto&szlig;e nach. 14 mb f&auml;llt, Wind NNO 4, Sicht 10.</p>
+    <p>From "Looks" radio-telegram 1132/19. Contents: Under attack, submerged, depth
+        charges. Last location 08:30 hours sea square AJ9863, course 220, 8
+        knots, following. Pressure: 14 millibar falling, wind NNE 4 m/s, visibility 10.</p>
+
+    <h1>Preparation of the Plaintext</h1>
+    <p>Note: This is based on the translated 1940 Kriegsmarine version of the <a href="TheEnigmaGeneralProcedure.pdf">Enigma general procedure</a>.</p>
+    <p>The M4 Enigma machine's keyboard only contains letters. No digits, punctuation marks, or spacebar. This means that these
+        characters need to be replaced with letters, according to the following procedure.</p>
+    <p>The plaintext should be written so that it is clear and easy to interpret, and avoid any confusion.</p>
+    <p>Where it is possible without risk of confusion, variations should be used to make cryptanalysis harder. Example: "Minensuchboot"
+        can be written as <tt>MINENSUCHBOOT</tt>, <tt>MINBOOT</tt>, or <tt>MMMBOOT</tt>.</p>
+
+    <h2>Spaces</h2>
+    <p>Spaces are simply omitted. Note: examples below will be written with spaces anyway, for clarity.</p>
+
+    <h2>Stress Marks</h2>
+    <p>Special words are noted by stress marks (<tt>J</tt>), for example location "Cap Gris Nez" is written <tt>J CAP GRIS NEZ J</tt>.
+        Especially important words are written twice along with the stress marks: <tt>J CAP GRIS NEZ J J CAP GRIS NEZ J</tt>.</p>
+
+    <h2>Abbreviations</h2>
+    <p>To avoid confusionand errors in abbreviations, distinguishing letters are
+        given thrice: "B.d.U."" is written <tt>B D UUU</tt> (or <tt>BBB DDD UUU</tt>)</p>
+    <p>Periods are left out.</p>
+
+    <h2>Numbers</h2>
+    <p>Numbers are typed out, most often with each digit in succession. Some multiple digit numbers can be written as for example:
+        <tt>ZEHN</tt>, <tt>ELF</tt>, <tt>ZWOELF</tt>, <tt>ZWANZIG</tt>, <tt>DREISSIG</tt>... and <tt>HUNDERT</tt>, <tt>TAUSEND</tt>...</p>
+    <p>Series of numbers which would be separated by commas, are separated with <tt>Y</tt>: "M 4, 7, 11 und 25" is written <tt>MMM VIER Y SIEBEN Y ELF UND ZWO FUNF</tt></p>
+    <p>If the original text contains number series without commas, the commas must be inserted to avoid confusion, for example
+        "3 1 6" should be written <tt>DREI Y EINS Y SEQS</tt>.</p>
+
+    <h2>List of some common text aids</h2>
+    <table style="font-family: monospace">
+        <tr>
+            <td>J-----J</td>
+            <td>Stress marks</td>
+        </tr>
+        <tr>
+            <td>X</td>
+            <td>Period</td>
+        </tr>
+        <tr>
+            <td>Y</td>
+            <td>Comma</td>
+        </tr>
+        <tr>
+            <td>UD</td>
+            <td>Question mark</td>
+        </tr>
+        <tr>
+            <td>XX</td>
+            <td>Colon</td>
+        </tr>
+        <tr>
+            <td>KK</td>
+            <td>Parenthesis</td>
+        </tr>
+        <tr>
+            <td>YY</td>
+            <td>Hyphen, dash, or slash</td>
+        </tr>
+    </table>
+
+    <h2>Message length</h2>
+    <p>Messages should be made to vary in length by adding letters and words at the end. After the last word of the plaintext,
+        three or four identical bigrams (letter pairs) are to be added. After these a common neutral word should be added.</p>
+    <p>Example: <tt>...ABGESUCHT KB KB KB GARDEROBENSTANDER</tt></p>
+    <p>Words which are contrary to "good breeding(sic)" and good order, personal communications, and the like, are forbidden.
+        The bigrams and finishing word should in no way be related to the message.</p>
+
+    <h2>Padding and group separation</h2>
+    <p>The plaintext is divided into groups of four letters. If the last group contains fewer than four letters, it is padded
+        with any consonants. Letters should be chosen as to avoid confusion.</p>
+    <p>Padding must not be chosen from text aids or other common letter combinations as this would make cryptanalysis easier.
+    </p>
+    <p>Messages should be encrypted in 250 characters or less. Longer messages are split up and each part encrypted with a different
+        key</p>
+    <p>Splitting of messages</p>
+    <p>If a message needs to be divided into several messages, the word <tt>FORT</tt> (fortsetzung, continuation) is inserted
+        somewhere in the last third of every message except the last. In each message except the first,
+        <tt>FORT</tt> is inserted in the first third, in the same manner, followed by the time group of the preceding message.
+    </p>
+    <p>The last message should make special note of the time group of the first message.</p>
+    <p>Each message should be encrypted with a different key.</p>
+</body>
+</html>

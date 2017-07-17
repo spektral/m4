@@ -1,4 +1,9 @@
+body {
+    margin: 0;
+}
+
 .base {
+    margin: 4px;
     padding: 4px;
     width: 792px;
     background: #222;
@@ -154,7 +159,7 @@
     height: 194px;
     background: #222;
     border-radius: 4px;
-    margin-top: 4px;
+    margin: 4px;
     padding: 40px 20px;
 }
 
@@ -176,7 +181,7 @@
     justify-content: center;
     align-items: center;
     font-family: Verdana;
-    font-size: 16px;
+    font-size: 14px;
     color: white;
 }
 
@@ -185,6 +190,7 @@
     border: 4px solid #999;
     width: 30px;
     height: 54px;
+    font-size: 12px;
 }
 
 .plughole {
@@ -202,7 +208,8 @@
 
 .notepad {
     display: flex;
-    margin-top: 16px;
+    justify-content: center;
+    margin: 4px;
     font-family: Courier New, Courier, monospace;
     width: 800px;
 }
@@ -242,7 +249,7 @@ button {
     margin: 0px 8px;
 }
 
-table {
+table.rotor_settings {
     font-family: "Courier New", Courier, monospace;
 }
 
@@ -253,4 +260,54 @@ th {
 
 select {
     width: 100%;
+}
+
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+    overflow: hidden;
+}
+
+li.menu {
+    float: left;
+}
+
+a.active {
+    background-color: darkgray;
+}
+
+li.menu a {
+    display: block;
+    font-family: Tahoma;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li.menu a:hover {
+    background-color: black;
+    color: white;
+}
+
+img.row {
+    display: inline-block;
+    height: 150px;
+}
+
+h1, h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+p, ul, ol, table {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+tt {
+    font-family: 'Courier New', Courier, monospace;
 }

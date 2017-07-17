@@ -233,7 +233,7 @@ function update_plugboard()
         item = document.getElementById("plug" + index_to_char(i));
         if (plugboard.connectors[i] != i) {
             item.className = "plugplugged";
-            item.innerHTML = index_to_char(i) + index_to_char(plugboard.connectors[i]);
+            item.innerHTML = index_to_char(i) + '-' + index_to_char(plugboard.connectors[i]);
         }
         else {
             item.className = "plug";
